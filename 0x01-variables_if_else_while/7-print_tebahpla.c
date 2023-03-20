@@ -11,7 +11,7 @@ int main(void)
 	/*declare variables*/
 	char ch;
 
-	for (ch = 'a'; ch >= 'z'; ch--)
+	for (ch = 'z'; ch >= 'a'; ch--)
 	{
 		putchar(ch);
 	}
