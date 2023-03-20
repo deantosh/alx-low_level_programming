@@ -10,15 +10,12 @@ int main(void)
 {
 	/*declare variables*/
 	char ch;
-	char lower_ch;
 
-	for (ch = "A"; ch <= "Z"; ch++)
+	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		/*convert character to lower case*/
-		lower_ch = tolower(ch);
-
 		/*print ch*/
-		putchar(lower_ch);
+		putchar(ch);
 	}
+	putchar('\n');
 	return (0);
 }
