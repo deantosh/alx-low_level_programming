@@ -9,12 +9,13 @@
 void print_alphabet_x10(void)
 {
 	/*declare variables*/
-	int i;
+	int i, ch;
 
 	for (i = 0; i <= 10; i++)
 	{
-		/*call user defined function to print alphabets*/
-		print_alphabet();
+		/*print alphabets*/
+	  	for (ch='a'; ch <= 'z'; ch++)
+			_putchar(ch);
 	}
 	_putchar('\n');
 }
