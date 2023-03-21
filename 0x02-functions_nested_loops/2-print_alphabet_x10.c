@@ -14,7 +14,7 @@ void print_alphabet_x10(void)
 	for (i = 0; i <= 10; i++)
 	{
 		/*call user defined function to print alphabets*/
-		print_alphabet(void);
+		print_alphabet();
 	}
 	_putchar('\n');
 }
