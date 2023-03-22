@@ -1,48 +1,30 @@
 #include "main.h"
 
 /**
- * print_sign - display the sign of a number
- * @n: number used
+ * print_sign - prints the sign of a number
+ * @n: The number to be checked
  *
- * Return: 1 and + (>0) and 0 and 0 ( == 0) and  -1 and -  (<0)
+ * Return: 1 for positive num, -1 for negative num and 0 for anything else
  */
 
 int print_sign(int n)
 {
-	/*return value variable*/
-	int r_value;
-
 	if (n > 0)
 	{
-		/*assign value to return value*/
-		r_value = 1;
-
-		_putchar('+');
-		_putchar(',');
-		_putchar(' ');
-		_putchar(r_value + '0');
-		_putchar('\n');
+		/*ASCII decimal equivalent of '+'*/
+		_putchar(43);
+		return (1);
 	}
-	else if (n == 0)
+	else if (n < 0)
 	{
-		/*assign value to return value*/
-		r_value = 0;
-
-		_putchar('0');
-		_putchar(',');
-		_putchar(' ');
-		_putchar(r_value + '0');
-		_putchar('\n');
+		/*ASCII decimal equivalent of '-'*/
+		_putchar(45);
+		return (-1);
 	}
 	else
 	{
-		/*assign value to return value*/
-		r_value = -1;
-
-		_putchar('-');
-		_putchar(',');
-		_putchar(' ');
-		_putchar(r_value + '0');
-		_putchar('\n');
+		/*ASCII decimal equivalent of '0'*/
+		_putchar(48);
+		return (0);
 	}
 }
