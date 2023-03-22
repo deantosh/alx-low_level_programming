@@ -17,7 +17,7 @@ void print_to_98(int n)
 		/*compute for the 2 digit*/
 		j = n / 10;
 		k = n % 10;
-		
+
 		for (i = n; i <= 98; i++)
 		{
 			_putchar(j + '0');
@@ -30,7 +30,7 @@ void print_to_98(int n)
 		j = n / 100;
 		k = n / 10;
 		l = n % 10;
-		
+
 		for (i = n; i > 98; i--)
 		{
 			_putchar(j + '0');
