@@ -22,6 +22,10 @@ void print_to_98(int n)
 
 			_putchar(j + '0');
 			_putchar(k + '0');
+
+			if (i == 98)
+				break;
+			
 			_putchar(',');
 			_putchar(' ');
 		}
