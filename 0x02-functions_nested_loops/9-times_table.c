@@ -19,13 +19,13 @@ void times_table(void)
 			int = results;
 
 			/*compute*/
-			results = a * b
-  
+			results = a * b;
+
 			_putchar(results + '0');
 			_putchar(',');
 			_putchar(' ');
 		}
 		putchar('\n');
 	}
-  
+
 }
