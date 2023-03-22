@@ -14,7 +14,7 @@ int _abs(int num)
 
 	if (num < 0)
 	{
-		abs_val = num * -1;
+		abs_value = num * -1;
 		return (abs_value);
 	}
 	else
