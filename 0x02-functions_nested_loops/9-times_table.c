@@ -16,7 +16,7 @@ void times_table(void)
 		for (b = 0; b <= 9; b++)
 		{
 			/*declare a variable*/
-			int = results;
+			int results;
 
 			/*compute*/
 			results = a * b;
@@ -25,7 +25,7 @@ void times_table(void)
 			_putchar(',');
 			_putchar(' ');
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 
 }
