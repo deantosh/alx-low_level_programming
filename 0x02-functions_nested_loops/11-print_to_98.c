@@ -21,7 +21,7 @@ void print_to_98(int n)
 			k = n % 10;
 
 			_putchar(j + '0');
-			_putchar(i + '0');
+			_putchar(k + '0');
 		}
 	}
 	else
