@@ -17,8 +17,8 @@ void print_to_98(int n)
 		for (i = n; i <= 98; i++)
 		{
 			/*compute for the 2 digit*/
-			j = n / 10;
-			k = n % 10;
+			j = i / 10;
+			k = i % 10;
 
 			_putchar(j + '0');
 			_putchar(k + '0');
@@ -26,17 +26,12 @@ void print_to_98(int n)
 	}
 	else
 	{
-		/*compute the digits on the three number*/
-		j = n / 100;
-		k = n / 10;
-		l = n % 10;
-
 		for (i = n; i > 98; i--)
 		{
 			/*compute the digits on the three number*/
-			j = n / 100;
-			k = n / 10;
-			l = n % 10;
+			j = i / 100;
+			k = i / 10;
+			l = i % 10;
 
 			_putchar(j + '0');
 			_putchar(k + '0');
