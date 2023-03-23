@@ -15,7 +15,8 @@ int main(void)
 	{
 		r1 = num % 3;
 		r2 = num % 5;
-		if (r1 == 0 || r2 == 0) 
+
+		if (r1 == 0 || r1 == 0)
 			sum += num;
 	}
 
