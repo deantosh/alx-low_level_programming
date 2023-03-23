@@ -15,7 +15,7 @@ void print_to_98(int num)
 		{
 			printf("%d, ", num--);
 		}
-		printf("%d\n", num)
+		printf("%d\n", num);
 	}
 	else
 	{
