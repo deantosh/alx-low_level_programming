@@ -21,7 +21,7 @@ void print_times_table(int n)
 
 			/*If n > 15 or n < 0 do not print*/
 			if (n < 0 || n > 15)
-					break;
+				break;
 
 
 			if (c > 9)
