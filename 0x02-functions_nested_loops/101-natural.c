@@ -9,13 +9,15 @@
 int main(void)
 {
 	/*declare variables*/
-	int num, r1, r2, sum;
+	int num, r1, r2;
+
+	/*initialize sum*/
+	int sum = 0;
 
 	for (num = 0; num < 1024; num++)
 	{
 		r1 = num % 3;
 		r2 = num % 5;
-		sum = 0;
 
 		if (r1 == 0 || r2 == 0)
 			sum += num;
