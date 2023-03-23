@@ -14,7 +14,7 @@ int main(void)
 	unsigned long fib1 = 0;
 	unsigned long fib2 = 1;
 
-	for (count = 0; count <= 50; count++)
+	for (count = 0; count < 50; count++)
 	{
 		/*add the first no. to the second number*/
 		sum = fib1 + fib2;
