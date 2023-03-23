@@ -14,19 +14,13 @@ int main(void)
 	for (num = 0; num < 1024; num++)
 	{
 		r1 = num % 3;
-
-		if (r1 == 0)
-		{
-			sum += num;
-		}
-
 		r2 = num % 5;
 
-		if (r2 == 0)
-		{
+		if (r1 == 0 || r2 == 0) 
 			sum += num;
-		}
 	}
+
 	printf("%d\n", sum);
+
 	return (0);
 }
