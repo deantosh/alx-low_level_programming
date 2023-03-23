@@ -13,7 +13,7 @@ int main(void)
 	int fib1 = 0;
 	int fib2 = 1;
 
-	for (count = 0; count <= 50; i++)
+	for (count = 0; count <= 50; count++)
 	{
 		/*add the first no. to the second number*/
 		sum = fib1 + fib2;
