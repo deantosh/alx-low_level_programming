@@ -9,25 +9,12 @@
 
 int _isupper(int c)
 {
-	/*declare variable*/
-	char ch;
-
-	for (ch = 65; ch <= 90; ch++)
+	if (c >= 65 && c <= 90)
 	{
-		if (c == ch)
-		{
-			_putchar(c);
-			_putchar(58);
-			_putchar(' ');
-			_putchar('1');
-		}
-		else
-		{
-			_putchar(c);
-			_putchar(58);
-			_putchar(' ');
-			_putchar('0');
-		}
+		return (1);
 	}
-	return (0);
+	else
+	{
+		return (0);
+	}
 }
