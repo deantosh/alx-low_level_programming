@@ -23,6 +23,6 @@ int _isupper(int c)
 			_putchar(c);
 			_putchar(58);
 			_puchar(' ');
-			_putchar('0');  
+			_putchar('0');
 	}
 }
