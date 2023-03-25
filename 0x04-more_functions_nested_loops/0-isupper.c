@@ -16,7 +16,7 @@ int _isupper(int c)
 	for (ch = 65; ch <= 90; ch++)
 	{
 		/*check each character*/
-		if (c == ch)
+		if (ch == c)
 		{
 			return (1);
 		}
