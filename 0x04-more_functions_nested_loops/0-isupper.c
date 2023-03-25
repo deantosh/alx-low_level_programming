@@ -9,12 +9,20 @@
 
 int _isupper(int c)
 {
-	if (c >= 65 && c <= 90)
+	/*declare variable*/
+	char ch;
+
+	/*for each ch compare with the input*/
+	for (ch = 65; ch <= 90; ch++)
 	{
-		return (1);
-	}
-	else
-	{
-		return (0);
+		/*check each character*/
+		if (c == ch)
+		{
+			return (1);
+		}
+		else
+		{
+			return (0);
+		}
 	}
 }
