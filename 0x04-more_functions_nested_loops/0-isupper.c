@@ -10,19 +10,22 @@
 int _isupper(int c)
 {
 	/*declare variable*/
-	char ch;
+	char ch, val;
 
 	/*for each ch compare with the input*/
 	for (ch = 65; ch <= 90; ch++)
 	{
 		/*check each character*/
-		if (ch == c)
+		if (c == ch)
 		{
-			return (1);
+			/*set return value*/
+			val = 1;
 		}
 		else
 		{
-			return (0);
+			/*set set resturn value*/
+			val = 0;
 		}
 	}
+	return (val);
 }
