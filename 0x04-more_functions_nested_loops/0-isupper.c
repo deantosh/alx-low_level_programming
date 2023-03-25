@@ -9,12 +9,18 @@
 
 int _isupper(int c)
 {
+	/*variable to hold return value*/
+	int val;
+
 	if (c >= 65 && c <= 90)
 	{
-		return (1);
+		/*set value*/
+		val = 1;
 	}
 	else
 	{
-		return (0);
+		/*set value*/
+		val = 0;
 	}
+	return (val);
 }
