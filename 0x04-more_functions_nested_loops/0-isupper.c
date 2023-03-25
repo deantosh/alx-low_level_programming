@@ -9,23 +9,12 @@
 
 int _isupper(int c)
 {
-	/*declare variable*/
-	char ch, val;
-
-	/*for each ch compare with the input*/
-	for (ch = 65; ch <= 90; ch++)
+	if (c >= 65 && c <= 90)
 	{
-		/*check each character*/
-		if (c == ch)
-		{
-			/*set return value*/
-			val = 1;
-		}
-		else
-		{
-			/*set set resturn value*/
-			val = 0;
-		}
+		return (1);
 	}
-	return (val);
+	else
+	{
+		return (0);
+	}
 }
