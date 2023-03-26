@@ -20,7 +20,7 @@ int main(void)
 		/*check for multiple of 3 and 5*/
 		if (r3 == 0 && r5 == 0)
 		{
-			printf("Fizz Buzz");
+			printf("FizzBuzz");
 		}
 		/*check for multiples of 3*/
 		else if (r3 == 0)
