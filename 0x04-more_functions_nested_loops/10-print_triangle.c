@@ -39,7 +39,7 @@ void print_triangle(int size)
 		hash_ch = hash_ch + 1;
 	}
 	/*if size of triangle is 0*/
-	if (size == 0)
+	if (size <= 0)
 	{
 	  _putchar('\n');
 	}
