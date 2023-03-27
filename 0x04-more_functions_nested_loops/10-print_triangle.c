@@ -41,6 +41,6 @@ void print_triangle(int size)
 	/*if size of triangle is 0*/
 	if (size <= 0)
 	{
-	  _putchar('\n');
+		_putchar('\n');
 	}
 }
