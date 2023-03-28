@@ -28,7 +28,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		m = (len - 2) / 2;
+		m = len / 2;
 	}
 
 	/*print half the characters*/
