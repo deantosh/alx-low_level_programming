@@ -24,11 +24,11 @@ void puts_half(char *str)
 
 	if (len % 2 == 0)
 	{
-		m = (len + 1) / 2;
+		m = len / 2;
 	}
 	else
 	{
-		m = len / 2;
+		m = (len + 1) / 2;
 	}
 
 	/*print half the characters*/
