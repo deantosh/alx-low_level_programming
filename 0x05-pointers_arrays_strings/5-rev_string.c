@@ -10,7 +10,8 @@
 void rev_string(char *s)
 {
 	/*declare variable*/
-	int i, len;
+	int i = 0;
+	int len = 0;
 	char *start_ptr, *end_ptr, ch;
 
 	/*get length of string*/
