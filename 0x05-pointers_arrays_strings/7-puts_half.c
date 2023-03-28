@@ -22,7 +22,7 @@ void puts_half(char *str)
 		len++;
 	}
 
-	if(len % 2 == 0)
+	if (len % 2 == 0)
 	{
 		m = len / 2;
 	}
@@ -30,7 +30,7 @@ void puts_half(char *str)
 	{
 		m = (len - 1) / 2;
 	}
-	
+
 	/*print half the characters*/
 	for (i = m; i < len; i++)
 	{
