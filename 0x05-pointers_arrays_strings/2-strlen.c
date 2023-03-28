@@ -12,13 +12,12 @@ int _strlen(char *s)
 	/*initialize len*/
 	int len = 0;
 
-	/*stop  iteration when *s == '\0'*/
 	while (*s != '\0')
 	{
 		/*get length of string*/
 		len++;
 
-		/*move pointer to the next memory allocation*/
+		/*move pointer to the next character*/
 		s++;
 	}
 	return (len);
