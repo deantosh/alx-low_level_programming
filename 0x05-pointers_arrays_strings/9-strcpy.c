@@ -9,22 +9,21 @@
  * Return: dest
  */
 
-char *_strcpy(char *dest, const char *src)
+char *_strcpy(char *dest, char *src)
 {
 
-	/*declare variable*/
-	int i, len = 0;
-
-	/*get length of src*/
-	while (src[len] <= '\0')
-	{
-		len++;
-	}
+	/*initialize variable*/
+	int i = 0;
 
 	/*copy all the characters to dest*/
-	for (i = 0; i < len; i++)
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
+		i++;
 	}
+
+	/*add null type*/
+	dest += '\0';
+
 	return (dest);
 }
