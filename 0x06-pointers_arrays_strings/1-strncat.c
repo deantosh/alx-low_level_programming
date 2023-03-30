@@ -24,11 +24,10 @@ char *_strncat(char *dest, char *src, int n)
 		dest_len++;
 	}
 
-	/*append src characters to dest including null byte*/
-	for (m = 0; m < n; m++)
+	/*append src characters only if n > 0*/
+	for (m = 0; src[m] && m < n; m++)
 	{
-		/*rewrite value of dest null byte*/
-		/*continue appending the src characters*/
+		/*rewrite value of dest null byte when appending*/
 		dest[dest_len++] = src[m];
 	}
 	return (dest);
