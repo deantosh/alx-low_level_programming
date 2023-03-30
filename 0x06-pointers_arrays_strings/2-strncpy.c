@@ -12,11 +12,10 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	/*declare variables*/
-	int i = 0;
-	int src_len;
+	int i = 0, src_len = 0;
 
 	/*get length of src*/
-	while (src[i])
+	while (src[i++])
 	{
 		src_len++;
 	}
