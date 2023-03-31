@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * strncpy - copies at most n bytes from string src into dest
+ * _strncpy - copies at most n bytes from string src into dest
  * @dest: The buffer to store string copy.
  * @src: The source string.
  * @n: The maximum number of bytes to be copied from src.
@@ -11,13 +11,14 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	/*declare variables*/
+	/*initialize variables*/
 	int i = 0, src_len = 0;
 
-	/*get length of src*/
-	while (src[i++])
+	/*get length of src including null-byte*/
+	while (src[i])
 	{
 		src_len++;
+		i++;
 	}
 
 	/*copy src at the beginning of dest*/
@@ -27,9 +28,9 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 
 	/*add null byte after src string*/
-	for (i = src_len; i < n; i++)
+	if (src_len < n)
 	{
-		dest[i] = '\0';
+		dest[src_len] = '\0';
 	}
 	return (dest);
 }
