@@ -19,7 +19,7 @@ char *leet(char *str)
 	int i = 0, j;
 	int leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		for (j = 0; j < 8; j++)
 		{
