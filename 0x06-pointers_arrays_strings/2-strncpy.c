@@ -14,23 +14,23 @@ char *_strncpy(char *dest, char *src, int n)
 	/*initialize variables*/
 	int i = 0, src_len = 0;
 
-	/*get length of src including null-byte*/
+	/*get length of src*/
 	while (src[i])
 	{
 		src_len++;
 		i++;
 	}
 
-	/*copy src at the beginning of dest*/
-	for (i = 0; src[i] && i < n; i++)
+	/*if src string*/
+	for (i = 0; i < n; i++)
 	{
 		dest[i] = src[i];
 	}
 
-	/*add null byte after src string*/
-	if (src_len < n)
+	/*if src string is less than the n-bytes to copy*/
+	for (i = src_len; i < n; i++)
 	{
-		dest[src_len] = '\0';
+		dest[i] = '\0';
 	}
 	return (dest);
 }
