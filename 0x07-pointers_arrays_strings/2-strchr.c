@@ -13,20 +13,21 @@
 char *_strchr(char *s, char c)
 {
 	/*declare*/
-	int i = 0, j;
+	int i = 0, len = 0;
 
 	/*get length of string*/
 	while (s[i])
 	{
+		len++;
 		i++;
 	}
 
-	for (j = 0; j < i; j++)
+	for (i = 0; i < len; i++)
 	{
-		if (c == s[j])
+		if (c == s[i])
 		{
 			/*reset position of pointer*/
-			s += j;
+			s += i;
 			return (s);
 		}
 	}
