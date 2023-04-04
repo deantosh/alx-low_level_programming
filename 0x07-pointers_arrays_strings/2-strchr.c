@@ -16,7 +16,7 @@ char *_strchr(char *s, char c)
 	int i = 0, len = 0;
 
 	/*get length of string*/
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		len++;
 		i++;
@@ -24,7 +24,7 @@ char *_strchr(char *s, char c)
 
 	for (i = 0; i < len; i++)
 	{
-		if (c == s[i])
+		if (s[i] == c)
 		{
 			/*reset position of pointer*/
 			s += i;
