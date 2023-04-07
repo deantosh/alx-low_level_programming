@@ -7,3 +7,24 @@
  *
  * Return: Value of x if y >= 0 and -1 if y < 0.
  */
+
+int _pow_recursion(int x, int y)
+{
+	/*declare variable*/
+	int num = 1;
+
+	if (y > 0)
+	{
+		num *= x;
+		num *= _pow_recursion(x, (y - 1));
+	}
+	else if (y < 0)
+	{
+		num = -1;
+	}
+	else
+	{
+		num = 1;
+	}
+	return (num);
+}
