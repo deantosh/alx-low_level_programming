@@ -20,15 +20,15 @@ char *_strdup(char *str)
 	i = 0;
 	len = 0;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
 	/*get length of string*/
 	while (str[i])
 	{
 		len++;
 		i++;
-	}
-	if (str == NULL)
-	{
-		return (NULL);
 	}
 	/*allocate memory to new string*/
 	a = malloc((len + 1) * sizeof(char));
