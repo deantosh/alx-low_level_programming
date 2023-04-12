@@ -26,14 +26,12 @@ char *_strdup(char *str)
 		len++;
 		i++;
 	}
-
-	if (len == 0)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-
 	/*allocate memory to new string*/
-	a = malloc(len * sizeof(char));
+	a = malloc((len + 1) * sizeof(char));
 
 	/*if memory allocation fails*/
 	if (a == NULL)
