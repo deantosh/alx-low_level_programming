@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * **alloc_grid - Allocates a memory to a 2-dimensional
@@ -11,28 +11,26 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i, j;
+	int row_index, column_index;
 	int **grid;
 
 	if (width <= 0 || height <= 0)
-	{
 		return (NULL);
-	}
 
-	/*allocate memory*/
-	grid = malloc(sizeof(int) * (width * height));
+	/*allocate memory to entire grid*/
+	grid = malloc(sizeof(int *) * height);
 
 	/*if allocation fails*/
 	if (grid == NULL)
-	{
 		return (NULL);
-	}
-	for (i = 0; i < height; i++)
+
+	for (row_index = 0; row_index < height; row_index++)
 	{
-		for (j = 0; j < width; j++)
-		{
-			grid[i][j] = 0;
-		}
+		/*allocate memory of each row*/
+		grid[row_index] = malloc(sizeof(int) * width);
+
+		for (column_index = 0; column_index < width; column_index++)
+			grid[row_index][column_index] = 0;
 	}
 	return (grid);
 }
