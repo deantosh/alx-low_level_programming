@@ -1,3 +1,8 @@
+/*
+ * File: 0-malloc_checked.c
+ * Auth: Deantosh M Daiddoh
+ */
+
 #include "main.h"
 #include <stdlib.h>
 
@@ -7,10 +12,11 @@
  *
  * Return: A pointer to the allocated memory.
  */
-
 void *malloc_checked(unsigned int b)
 {
-	void *mem = malloc(b);
+	void *mem;
+
+	mem = malloc(b);
 
 	if (mem == NULL)
 		exit(98);
