@@ -17,16 +17,18 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *mem;
-	unsigned int index;
+	unsigned int index, byte_size = 0;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	mem = malloc(nmemb * size);
+	byte_size = nmemb * size;
+
+	mem = malloc(byte_size);
 	if (mem == NULL)
 		return (NULL);
 
-	for (index = 0; index < nmemb; index++)
+	for (index = 0; index < byte_size; index++)
 		mem[index] = 0;
 
 	return (mem);
