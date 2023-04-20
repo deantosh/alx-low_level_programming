@@ -5,7 +5,7 @@
 
 #include "3-calc.h"
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * get_op_func - Selects the correct function to perform the
  *		 operation asked by the user.
@@ -26,11 +26,11 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	while (index < 6)
+	while (index < 5)
 	{
-		if (s == ops->op)
+		if (strcmp(s, ops[index].op) == 0)
 		{
-			return (ops->f);
+			return (ops[index].f);
 		}
 		index++;
 	}
