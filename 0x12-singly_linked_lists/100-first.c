@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-void first(void) __attribute__((constructor));
+void first(void) __attribute__ ((constructor));
 
 /**
  * first - Executed first before main and prints a constatnt string. 
