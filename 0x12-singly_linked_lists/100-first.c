@@ -8,7 +8,7 @@
 void first(void) __attribute__ ((constructor));
 
 /**
- * first - Executed first before main and prints a constatnt string. 
+ * first - Executed first before main and prints a constant string.
  *
  * Return: void.
  */
