@@ -10,7 +10,7 @@
 
 /**
  * add_node - Adds a new node at the beginning of the list_t list.
- * @head: A pointer to the (malloc'd) string.
+ * @head: A pointer to the list node.
  * @str: A pointer to the string to be added.
  *
  * Return: A pointer to the memory of new element. (NULL if it fails).
