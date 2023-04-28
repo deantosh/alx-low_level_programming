@@ -1,7 +1,7 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stddef.h> 
+#include <stddef.h>
 /**
  * struct list_s - stringly linked list.
  * @str: A pointer to the (malloc'd)string.
