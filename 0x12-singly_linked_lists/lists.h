@@ -4,7 +4,7 @@
 #include <stddef.h>
 /**
  * struct list_s - stringly linked list.
- * @str: A pointer to the (malloc'd)string.
+ * @str: A pointer to the string data in the list.
  * @len: The length of the string.
  * @next: A pointer to next node.
  *
