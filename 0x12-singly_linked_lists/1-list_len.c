@@ -7,7 +7,7 @@
 
 /**
  * list_len - Gets the length of the linked list.
- * @h: A pointer to the (malloced)string.
+ * @h: A pointer to the nodes.
  *
  * Return: The lenght of the list.
  */
@@ -17,8 +17,9 @@ size_t list_len(const list_t *h)
 
 	while (h != NULL)
 	{
-		h = h->next;
 		count++;
+		/*point head to the next node*/
+		h = h->next;
 	}
 	return (count);
 }
