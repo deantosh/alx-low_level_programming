@@ -105,6 +105,8 @@ void print_a_string(char *separator, va_list args)
 	{
 		printf("%s%s", separator, "(nill)");
 	}
-
-	printf("%s%s", separator, str);
+	else
+	{
+		printf("%s%s", separator, str);
+	}
 }
