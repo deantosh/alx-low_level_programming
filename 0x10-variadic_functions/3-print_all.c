@@ -104,9 +104,7 @@ void print_a_string(char *separator, va_list args)
 	if (str == NULL)
 	{
 		printf("%s%s", separator, "(nill)");
+		return;
 	}
-	else
-	{
-		printf("%s%s", separator, str);
-	}
+	printf("%s%s", separator, str);
 }
