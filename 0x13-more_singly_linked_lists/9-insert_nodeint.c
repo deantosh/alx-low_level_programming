@@ -29,14 +29,23 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/*add data*/
 	new_node->n = n;
 
-	/*get the the prev_node*/
-	prev_node = *head;
-	for (index = 0; index < idx ; index++)
+	/*Adds node at the beginning of the list*/
+	if (idx == 0)
 	{
-		if (prev_node->next == NULL)
-			return (NULL);
+		new_node->next = *head;
+		*head = new_node;
+	}
 
-		prev_node = prev_node->next;
+	if (idx > 0)
+	{
+		prev_node = *head;
+		for (index = 0; index < idx ; index++)
+		{
+			if (prev_node->next == NULL)
+				return (NULL);
+
+			prev_node = prev_node->next;
+		}
 	}
 
 	new_node->next = prev_node->next;
