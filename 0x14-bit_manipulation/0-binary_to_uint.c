@@ -3,9 +3,8 @@
  * Author: Deantosh M Daiddoh
  */
 
-#include <stddef.h>
-#include <math.h>
 #include <stdlib.h>
+
 /**
  * binary_to_uint - Converts from binary to unsigned integer.
  * @b: A pointer to the bit string.
@@ -14,9 +13,8 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int num = 0, val;
-	int index = 0, s_len = 0;
-	int len;
+	unsigned int sum = 0, count = 0;
+	int index = 0, b_len = 0;
 
 	if (b == NULL)
 		return (0);
@@ -24,19 +22,20 @@ unsigned int binary_to_uint(const char *b)
 	/*get length of string*/
 	while (b[index] != '\0')
 	{
-		s_len++;
+		b_len++;
 		index++;
 	}
 
-	len = s_len;
-	for (index = 0; index < s_len; index++)
+	while (b_len--)
 	{
-		if (b[index] < 48 || b[index] > 49)
+		if (b[b_len] < 48 || b[b_len] > 49)
 			return (0);
 
-		val = b[index] - '0';
-		num += val * pow(2, (len - 1));
-		len--;
+		if (b[b_len] == 49)
+		{
+			sum += 1 << count;
+		}
+		count++;
 	}
-	return (num);
+	return (sum);
 }
