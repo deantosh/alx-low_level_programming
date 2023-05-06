@@ -4,9 +4,7 @@
  */
 
 #include <stdlib.h>
-
-/*declare function prototype*/
-int get_length(const char *str);
+#include "main.h"
 
 /**
  * binary_to_uint - Converts from binary to unsigned integer.
