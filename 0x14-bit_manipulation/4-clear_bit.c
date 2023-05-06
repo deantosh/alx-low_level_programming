@@ -19,13 +19,13 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	/*assign max bit size - 64*/
 	size = sizeof(unsigned long int) * 8;
 
-	if (index > size)
-		return (-1);
-
-	*n = *n & (~(1 << index));
-
-	if (*n)
+	if (index < size)
+	{
+		*n = *n & (~(1 << index));
 		return (1);
+	}
 	else
+	{
 		return (-1);
+	}
 }
