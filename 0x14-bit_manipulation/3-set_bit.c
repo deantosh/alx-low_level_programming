@@ -14,6 +14,15 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
+	unsigned int size;
+
+	/*assign max bit size - 64*/
+	size = sizeof(unsigned long int) * 8;
+
+	if (index >  size)
+		return (-1);
+
+	/*set the bit to  1*/
 	*n = *n | 1 << index;
 
 	if (*n)
