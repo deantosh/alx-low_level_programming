@@ -5,6 +5,9 @@
 
 #include <stdlib.h>
 
+/*declare function prototype*/
+int get_length(const char *str);
+
 /**
  * binary_to_uint - Converts from binary to unsigned integer.
  * @b: A pointer to the bit string.
@@ -14,17 +17,13 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, count = 0;
-	int index = 0, b_len = 0;
+	int b_len = 0;
 
 	if (b == NULL)
 		return (0);
 
-	/*get length of string*/
-	while (b[index] != '\0')
-	{
-		b_len++;
-		index++;
-	}
+	/*get length of the bit string*/
+	b_len = get_length(b);
 
 	while (b_len--)
 	{
@@ -38,4 +37,22 @@ unsigned int binary_to_uint(const char *b)
 		count++;
 	}
 	return (sum);
+}
+
+/**
+ * get_length - Gets the length of the binary array.
+ * @str: A pointer to the binary number.
+ *
+ * Return: The length of the array.
+ */
+int get_length(const char *str)
+{
+	int index = 0, len = 0;
+
+	while (str[index] != '\0')
+	{
+		len++;
+		index++;
+	}
+	return (len);
 }
