@@ -7,5 +7,6 @@ void print_binary(unsigned long int n);
 int get_length(const char *str);
 void get_bits(unsigned long int num);
 int get_bit(unsigned long int n, unsigned int index);
+int set_bit(unsigned long int *n, unsigned int index);
 
 #endif /*MAIN_H*/
