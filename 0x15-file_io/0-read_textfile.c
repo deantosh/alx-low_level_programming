@@ -16,26 +16,25 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
-	char ch;
-	size_t count;
+	int fd, byte_count;
+	char *buf;
 
-	fp = fopen(filename, "r");
-
-	/*process starts here*/
-	if (fp == NULL)
-	{
+	if (filename == NULL)
 		return (0);
-	}
 
-	count = 0;
-	while ((ch = fgetc(fp)) != EOF && count < letters)
-	{
-		_putchar(ch);
-		count++;
-	}
-	return (count);
-	/*process ends*/
+	/*allocate memory to buffer*/
+	buf = malloc(sizeof(char *) * 8);
+	if (buf == NULL)
+		return (0);
 
-	fclose(fp);
+	fd = open(filename, O_RDONLY, 600);
+	if (fd == -1)
+		return (0);	
+
+	byte_count = read(fd, buf, letters);
+	write(STDOUT_FILENO, buf, byte_count);
+	free(buf);
+	close(fd);
+
+	return (byte_count);
 }
