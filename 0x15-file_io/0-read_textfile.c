@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	/*allocate memory to buffer*/
-	buf = malloc(sizeof(char *) * 8);
+	buf = malloc(sizeof(char *) * letters);
 	if (buf == NULL)
 		return (0);
 
