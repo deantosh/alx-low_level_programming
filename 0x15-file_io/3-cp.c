@@ -7,86 +7,69 @@
 
 /**
  * main - Main entry point.
- * @ac: The argument count.
- * @av: The arguments passed to the program.
+ * @argc: The argument count.
+ * @argv: The arguments passed to the program.
  *
  * Return: Always (0) Success.
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	if (ac != 3)
+	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
 	/*copy content*/
-	copy_file(av[1], av[2]);
+	copy_file(argv[1], argv[2]);
 
-	return (0);
+	return (0); /*success*/
 }
 
 /**
  * copy_file - Copies the content of one file to another file.
- * @first_file: The file to copy content from.
- * @second_file: The file to copy content to.
+ * @src: The source file.
+ * @dest: The file to copy content to.
  *
  * Return: void.
  */
-void copy_file(char *first_file, char *second_file)
+void copy_file(char *src, char *dest)
 {
-	int fd_one, fd_two, c_one, c_two;
-	char *buff;
+	int fd_s, fd_d, r_bytes;
+	char buff[1024];
 
-	if (!first_file)
+	fd_s = open(src, O_RDONLY);
+	if (!src || fd_s == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", first_file);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
 
-	/*create buffer*/
-	buff = malloc(sizeof(char *) * 8);
-	if (!buff)
+	fd_d = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	while ((r_bytes = read(fd_s, buff, 1024)) > 0)
 	{
-		dprintf(2, "Failed to create buffer!");
-		exit (10);
+		if (write(fd_d, buff, r_bytes) != r_bytes || fd_d == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+			exit(99);
+		}
 	}
 
-	/*open a file for reading*/
-	fd_one = open(first_file, O_RDONLY);
-	if (fd_one == -1)
+	if (r_bytes == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", first_file);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
 
-	/*open another file for writing*/
-	fd_two = open(second_file,
-				O_WRONLY | O_CREAT | O_TRUNC,
-				S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fd_two == -1)
+	if (close(fd_s) == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", second_file);
-		exit(99);
-	}
-
-	/*read from first_file and write to second_file*/
-	while (read(fd_one, buff, 1024))
-	{
-		write(fd_two, buff, 1024);
-	}
-
-	c_one = close(fd_one);
-	if (c_one == -1)
-	{
-		printf("Error: Can't close fd %d", fd_one);
+		printf("Error: Can't close fd %d", fd_s);
 		exit(100);
 	}
 
-	c_two = close(fd_two);
-	if (c_two == -1)
+	if (close(fd_d) == -1)
 	{
-		printf("Error: Can't close fd %d", fd_two);
+		printf("Error: Can't close fd %d", fd_d);
 		exit(100);
 	}
 }
