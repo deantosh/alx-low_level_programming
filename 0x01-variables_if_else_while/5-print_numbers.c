@@ -9,11 +9,11 @@
 int main(void)
 {
 	/*declare variable*/
-	int num;
+	int digit;
 
-	for (num = 0; num < 10; num++)
+	for (digit = 0; digit < 10; digit++)
 	{
-		printf("%d", num);
+		printf("%d", digit);
 	}
 	putchar('\n');
 	return (0);
