@@ -19,10 +19,10 @@ unsigned int binary_to_uint(const char *b)
 
 	while (len > 0)
 	{
-		if (b[len] < 48 || b[len] > 49)
+		if (b[len - 1] < 48 || b[len - 1] > 49)
 			return (0);
 
-		if (b[len] == 49)
+		if (b[len - 1] == 49)
 		{
 			sum += 1 << count;
 		}
