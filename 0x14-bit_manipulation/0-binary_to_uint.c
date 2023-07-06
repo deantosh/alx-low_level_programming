@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 
 /**
@@ -16,7 +17,7 @@ unsigned int binary_to_uint(const char *b)
 	/*get length of string*/
 	len = get_length(b);
 
-	while (len >= 0)
+	while (len > 0)
 	{
 		if (b[len] < 48 || b[len] > 49)
 			return (0);
@@ -37,7 +38,7 @@ unsigned int binary_to_uint(const char *b)
  *
  * Return: The length of the array.
  */
-int get_length(char *str)
+int get_length(const char *str)
 {
 	int index = 0, len = 0;
 
