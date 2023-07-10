@@ -9,7 +9,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, cnt;
+	int fd, fw, cnt;
 
 	/*get length of the string*/
 	cnt = str_len(text_content);
