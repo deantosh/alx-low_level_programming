@@ -28,3 +28,19 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	return (1);
 }
+
+/**
+ * str_len - Gets the string length.
+ * @str: A pointer to the string.
+ *
+ * Return: The length.
+ */
+int str_len(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+		i++;
+
+	return (i);
+}
