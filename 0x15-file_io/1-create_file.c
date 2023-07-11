@@ -23,9 +23,12 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	/*write into the file*/
-	fw = write(fd, text_content, cnt);
-	if (fw == -1)
-		return (-1);
+	if (text_content != NULL)
+	{
+		fw = write(fd, text_content, cnt);
+		if (fw == -1)
+			return (-1);
+	}
 
 	/*close file*/
 	close(fd);
