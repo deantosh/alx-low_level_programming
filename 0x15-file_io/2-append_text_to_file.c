@@ -9,38 +9,22 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, cnt;
+	int fd, fw, cnt = 0;
 
 	/*get length of the str*/
-	cnt = str_len(text_content);
+	if (text_content != NULL)
+	{
+		while (text_content[cnt])
+			cnt++;
+	}
 
 	if (filename == NULL)
 		return (-1);
 
 	fd = open(filename, O_RDWR | O_APPEND,  S_IRUSR | S_IWUSR);
-	if (fd == -1)
-		return (-1);
-
-	if (text_content)
-		write(fd, text_content, cnt);
-	else
+	fw = write(fd, text_content, cnt);
+	if (fd == -1 || fw == -1)
 		return (-1);
 
 	return (1);
-}
-
-/**
- * str_len - Gets the string length.
- * @str: A pointer to the string.
- *
- * Return: The length.
- */
-int str_len(char *str)
-{
-	int i = 0;
-
-	while (str[i])
-		i++;
-
-	return (i);
 }
