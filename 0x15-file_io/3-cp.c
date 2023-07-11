@@ -59,13 +59,13 @@ void copy_file(char *src_file, char *dest_file)
 
 	if (close(fd_s) == -1)
 	{
-		printf("Error: Can't close fd %d", fd_s);
+		printf("Error: Can't close fd");
 		exit(100);
 	}
 
 	if (close(fd_d) == -1)
 	{
-		printf("Error: Can't close fd %d", fd_d);
+		printf("Error: Can't close fd");
 		exit(100);
 	}
 }
