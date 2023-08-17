@@ -5,16 +5,16 @@
 #include <stdlib.h>
 
 /**
- * struct dlistint_t - Defines double linked node object.
+ * struct dlistint_s - Defines double linked node object.
  * @n: The node data.
  * @next: A pointer to the next node.
  * @prev: A pointer to the previous node.
  */
-typedef struct dlistint_t
+typedef struct dlistint_s
 {
 	size_t n;
-	struct dlistint_t *next;
-	struct dlistint_t *prev;
+	struct dlistint_s *next;
+	struct dlistint_s *prev;
 } dlistint_t;
 
 /*Function prototype*/
