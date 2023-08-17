@@ -14,31 +14,30 @@
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *current;
+	dlistint_t *h;
 	dlistint_t *new;
 
-	/*allocate memory*/
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);
 
-	/*set the values of the node*/
 	new->n = n;
 	new->next = NULL;
 
-	current = *head;
+	h = *head;
 
-	/*get position of the last node in list*/
-	if (current != NULL)
+	if (h != NULL)
 	{
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new;
+		while (h->next != NULL)
+			h = h->next;
+		h->next = new;
 	}
 	else
+	{
 		*head = new;
+	}
 
-	new->prev = current;
+	new->prev = h;
 
 	return (new);
 }
