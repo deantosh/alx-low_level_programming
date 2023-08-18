@@ -9,10 +9,12 @@
  * @n: The node data.
  * @next: A pointer to the next node.
  * @prev: A pointer to the previous node.
+ *
+ * Description: struct used to create a doubly linked integer list
  */
 typedef struct dlistint_s
 {
-	size_t n;
+	int n;
 	struct dlistint_s *next;
 	struct dlistint_s *prev;
 } dlistint_t;
