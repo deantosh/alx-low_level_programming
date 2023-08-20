@@ -16,6 +16,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *current;
 	unsigned int list_len;
+	int res;
 
 	current = *head;
 	if (current == NULL)
@@ -25,9 +26,9 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (-1);
 
 	/*search node and then delete it*/
-	search_del_node(head, index, list_len);
+	res = search_del_node(head, index, list_len);
 
-	return (1);
+	return (res);
 }
 
 /**
@@ -38,48 +39,50 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
  *
  * Return: void.
  */
-void search_del_node(dlistint_t **head, unsigned int index, unsigned int len)
+int search_del_node(dlistint_t **head, unsigned int index, unsigned int len)
 {
 	dlistint_t *current, *prev, *next;
 	unsigned int idx = 0;
 
 	current = *head;
+
 	/*set pos of current ptr to start of list*/
 	if (current)
 	{
 		while (current->prev)
 			current = current->prev;
 	}
+	/*get the position if node to delete*/
 	while (current)
-	{
+        {
 		if (idx == index)
 		{
-			if (index == 0)
+			if (idx == 0)
 			{
 				if (len == 1)
-				{
 					*head = NULL;
-					free(current);
-					break;
+				else
+				{
+					next = current->next;
+					*head = next;
+					next->prev = NULL;
 				}
-				next = current->next;
-				*head = next;
-				free(current);
-				next->prev = NULL;
 			}
 			else
 			{
 				prev = current->prev;
 				next = current->next;
-				free(current);
 				/*connect prev ptr and next ptr*/
 				prev->next = next;
 				next->prev = prev;
 			}
 		}
-		idx++;
-		current = current->next;
+		free(current);
+		return (1);
+                idx++;
+                current = current->next;
 	}
+	return (-1);
 }
 
 /**
