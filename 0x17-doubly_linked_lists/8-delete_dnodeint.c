@@ -45,16 +45,14 @@ int search_del_node(dlistint_t **head, unsigned int index, unsigned int len)
 	unsigned int idx = 0;
 
 	current = *head;
-
 	/*set pos of current ptr to start of list*/
 	if (current)
 	{
 		while (current->prev)
 			current = current->prev;
 	}
-	/*get the position if node to delete*/
 	while (current)
-        {
+	{
 		if (idx == index)
 		{
 			if (idx == 0)
@@ -76,11 +74,11 @@ int search_del_node(dlistint_t **head, unsigned int index, unsigned int len)
 				prev->next = next;
 				next->prev = prev;
 			}
+			free(current);
+			return (1);
 		}
-		free(current);
-		return (1);
-                idx++;
-                current = current->next;
+		idx++;
+		current = current->next;
 	}
 	return (-1);
 }
