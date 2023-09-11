@@ -19,12 +19,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index, i;
 	char *value_copy;
 
-	/*copy and allocate mem for value*/
+	if (ht == NULL)
+		return (0);
 	value_copy = strdup(value);
 	/*get the index to add the new_node*/
 	index = key_index((const unsigned char *)key, ht->size);
 	i = index;
-	/*when collision occurs*/
 	while (ht->array[i])
 	{
 		/*case 1: update value of a key -- if key is the same*/
