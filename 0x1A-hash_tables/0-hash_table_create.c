@@ -22,11 +22,13 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (ht == NULL)
 		return (NULL);
 
+	ht->size = size;
 	/*allocate mem for array items*/
 	ht->array = malloc(sizeof(hash_node_t *) * size);
 	if (ht == NULL)
 		return (NULL);
 
+	/*initialize the array*/
 	for (i = 0; i < size; i++)
 	{
 		ht->array[i] = NULL;
