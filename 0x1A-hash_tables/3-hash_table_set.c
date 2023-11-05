@@ -15,7 +15,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *h_item, *ptr = NULL;
+	hash_node_t *h_item, *curr_item = NULL;
 	unsigned long int i;
 
 	if (ht == NULL || key == NULL || value == NULL)
@@ -25,35 +25,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	h_item = malloc(sizeof(hash_node_t));
 	if (h_item == NULL)
 		return (0);
-
 	/*create the element*/
 	h_item->key = strdup(key);
 	h_item->value = strdup(value);
-
 	/*get the index*/
 	i = key_index((const unsigned char *)key, ht->size);
-	/*move ptr to the index*/
-	ptr = ht->array[i];
-	if (ptr) /*key exists*/
+	curr_item = ht->array[i];
+	if (ht->array[i]) /*key exists*/
 	{
-		if (strcmp(ptr->key, key) == 0)/*update key*/
-			ptr->value = (char *)value;
-		else /*add node at the end*/
+		if (strcmp(ht->array[i]->key, key) == 0)/*update key*/
+			ht->array[i]->value = (char *)value;
+		else /*add node at the beginning*/
 		{
-			while (ptr)
-			{
-				if (ptr->next == NULL)
-				{
-					ptr->next = h_item;
-					return (1);
-				}
-				ptr++;
-			}
+			ht->array[i] = h_item;
+			h_item->next = curr_item;
 		}
 	}
 	else /*does not exist*/
 	{
 		ht->array[i] = h_item;
+		h_item->next = NULL;
 	}
 	return (1);
 }
