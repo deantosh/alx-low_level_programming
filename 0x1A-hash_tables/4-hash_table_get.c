@@ -14,30 +14,29 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int index;
-	hash_node_t *ptr = NULL;
+	unsigned long int i;
+	hash_node_t *curr = NULL;
 
 	if (ht == NULL || key == NULL)
 		return (NULL);
 
 	/*get the index*/
-	index = key_index((const unsigned char *)key, ht->size);
+	i = key_index((const unsigned char *)key, ht->size);
 
-	ptr = ht->array[index];
-
-	if (ptr)
+	if (ht->array[i])
 	{
-		if (ptr->next == NULL)
+		if (ht->array[i]->next == NULL)
 		{
-			return (ptr->value);
+			return (ht->array[i]->value);
 		}
 		else
 		{
-			while (ptr)
+			curr = ht->array[i];
+			while (curr)
 			{
-				if (!(strcmp(key, ptr->key)))
-					return (ptr->value);
-				ptr++;
+				if (strcmp(curr->key, key) == 0)
+					return (curr->value);
+				curr = curr->next;
 			}
 		}
 	}
