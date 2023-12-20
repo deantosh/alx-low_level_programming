@@ -6,6 +6,3 @@ all: school
 
 school: ${OBJECTS}
 	${CC} ${OBJECTS} -o school;
-
-clean:
-	rm -rf *.o
