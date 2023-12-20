@@ -1,5 +1,11 @@
 # define gcc macro 
 CC=gcc
+OBJECTS=main.c school.c
 
-school: main.c school.c
-	${CC} main.c school.c -o school;
+all: school
+
+school: ${OBJECTS}
+	${CC} ${OBJECTS} -o school;
+
+clean:
+	rm -rf *.o
