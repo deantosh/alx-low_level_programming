@@ -16,17 +16,18 @@ def island_perimeter(grid):
     """finds the perimeter of an island described in grid"""
 
     perimeter = 0
-    count = 0
-    for row in grid:
-        for i in row:
-            if i == 1:
-                count += 1
-                if count == 1:
-                    perimeter += 3
-                else:
-                    perimeter += 2
-    perimeter += 1
-    if count == 0:
-        perimeter = 0
+
+    for row in range(len(grid)):
+        for col in range(len(grid[row])):
+            # if cell is land zone
+            if grid[row][col]:
+                if row <= 0 or not grid[row - 1][col]:
+                    perimeter += 1
+                if col <= 0 or not grid[row][col - 1]:
+                    perimeter += 1
+                if row >= len(grid) - 1 or not grid[row + 1][col]:
+                    perimeter += 1
+                if col >= len(grid[row]) - 1 or not grid[row][col + 1]:
+                    perimeter += 1
 
     return perimeter
