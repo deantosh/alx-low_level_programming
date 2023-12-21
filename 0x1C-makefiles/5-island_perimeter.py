@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Module: defines a function that finds the perimeter of an island described in grid.
-Grid is a list of integers:
+Module: defines a function that finds the perimeter of an island
+described in grid. Grid is a list of integers:
   - 0 represents water zone
   - 1 represents land zone
   - one cell is square with side length 1
@@ -10,6 +10,7 @@ Grid is a list of integers:
 Grid is completely surrounded by water, there is one island or nothing.
 The island does not have lakes.
 """
+
 
 def island_perimeter(grid):
     """finds the perimeter of an island described in grid"""
