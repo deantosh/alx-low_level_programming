@@ -46,7 +46,7 @@ int find_value(int *array, int low, int high, int value)
 		return (-1);
 
 	/*print the sub array*/
-	printf("Search in array: ");
+	printf("Searching in array: ");
 	for (i = low; i <= high; i++)
 	{
 		printf("%d", array[i]);
