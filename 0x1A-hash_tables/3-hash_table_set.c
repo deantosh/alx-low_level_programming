@@ -21,20 +21,23 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int idx;
 	hash_node_t *data;
 
+	/*input validation*/
+	if (!key || !value)
+		return (0);
+
 	/*create node*/
-	data = malloc(sizeof(hash_node_t));
+	data = (hash_node_t *)malloc(sizeof(hash_node_t));
 	if (!data)
 		return (0);
-	data->key = malloc(strlen(key) + 1);
+	data->key = (char *)malloc(strlen(key) + 1);
 	if (!data->key)
 		return (0);
-	data->value = malloc(strlen(value) + 1);
+	data->value = (char *)strdup(value);
 	if (!data->value)
 		return (0);
 
 	/*set value of node*/
 	strcpy(data->key, key);
-	strcpy(data->value, value);
 
 	/*get the index of associated key*/
 	idx = key_index((const unsigned char *)key, ht->size);
