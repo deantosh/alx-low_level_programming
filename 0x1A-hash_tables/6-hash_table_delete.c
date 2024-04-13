@@ -17,10 +17,6 @@ void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *ptr, *tmp;
 
-	/*validate input*/
-	if (ht == NULL)
-		return;
-
 	for (size_t i = 0; i < ht->size; i++)
 	{
 		ptr = ht->array[i];
