@@ -22,7 +22,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *data;
 
 	/*input validation*/
-	if (!key || !value || strlen(key) == 0)
+	if (!ht || !key || !value || *key == '\0')
 		return (0);
 
 	/*create node*/
