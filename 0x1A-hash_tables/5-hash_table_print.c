@@ -16,8 +16,10 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i;
 	hash_node_t *node_ptr;
-	int comma_flag = 0;
-	int nodes_flag = 0;
+	int comma_flag = 0, nodes_flag = 0;
+
+	if (ht == NULL)
+		return;
 
 	printf("{");
 	for (i = 0; i < ht->size; i++)
