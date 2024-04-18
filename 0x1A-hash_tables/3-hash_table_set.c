@@ -19,8 +19,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *data;
-	hash_node_t *node;
+	hash_node_t *data, *node, *tmp;
 
 	/*input validation*/
 	if (!ht || !key || !value || *key == '\0')
@@ -52,6 +51,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			node = node->next;
 		}
+		/*handle collision*/
+		tmp = ht->array[idx];
+		ht->array[idx] = data;
+		data->next = tmp;
 	}
 	return (1);
 }
