@@ -20,24 +20,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
 	hash_node_t *data;
+	hash_node_t *node;
 
 	/*input validation*/
 	if (!ht || !key || !value || *key == '\0')
 		return (0);
 
 	/*create node*/
-	data = (hash_node_t *)malloc(sizeof(hash_node_t));
-	if (!data)
-		return (0);
-	data->key = (char *)malloc(strlen(key) + 1);
-	if (!data->key)
-		return (0);
-	data->value = (char *)strdup(value);
-	if (!data->value)
-		return (0);
-
-	/*set value of node*/
-	strcpy(data->key, key);
+	data = create_node(key, value);
 
 	/*get the index of associated key*/
 	idx = key_index((const unsigned char *)key, ht->size);
@@ -50,8 +40,49 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		data->next = ht->array[idx];
-		ht->array[idx] = data;
+		node = ht->array[idx];
+
+		/*check if the key exist and update its value*/
+		while (node)
+		{
+			if (strcmp(node->key, key) == 0)
+			{
+				node->value = (char *)value;
+				break;
+			}
+			node = node->next;
+		}
 	}
 	return (1);
+}
+
+/**
+ * create_node - creates a node to add to hash table
+ * @key: the key to add to node
+ * @value: the value associated to the key
+ *
+ * Return: node (success) or NULL (fails).
+ */
+hash_node_t *create_node(const char *key, const char *value)
+{
+	hash_node_t *data;
+
+	data = (hash_node_t *)malloc(sizeof(hash_node_t));
+	if (data == NULL)
+		return (NULL);
+
+	data->key = (char *)malloc(strlen(key) + 1);
+	if (data->key == NULL)
+		return (NULL);
+	/*copy data*/
+	strcpy(data->key, key);
+
+	/*duplicate value*/
+	data->value = strdup(value);
+	if (data->value == NULL)
+		return (NULL);
+
+	data->next = NULL;
+
+	return (data);
 }
