@@ -47,7 +47,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(node->key, key) == 0)
 			{
 				node->value = (char *)value;
-				break;
+				return (1);
 			}
 			node = node->next;
 		}
@@ -84,8 +84,6 @@ hash_node_t *create_node(const char *key, const char *value)
 	data->value = strdup(value);
 	if (data->value == NULL)
 		return (NULL);
-
-	data->next = NULL;
 
 	return (data);
 }
