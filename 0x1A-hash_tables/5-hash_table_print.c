@@ -27,12 +27,10 @@ void hash_table_print(const hash_table_t *ht)
 		node_ptr = ht->array[i];
 		while (node_ptr)
 		{
-			if (comma_flag == 1 && nodes_flag > 0 && !node_ptr->next)
+			if (comma_flag == 1 && nodes_flag > 0)
 				printf(", ");
 
 			printf("'%s': '%s'", node_ptr->key, node_ptr->value);
-			if (node_ptr->next)
-				printf(", ");
 			node_ptr = node_ptr->next;
 			nodes_flag++;
 		}
