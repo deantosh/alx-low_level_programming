@@ -1,0 +1,20 @@
+# Variables
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+# Top level target
+all: $(NAME)
+
+# Rule to link object files
+$(NAME): $(OBJ)
+	gcc $^ -o $@
+
+# Rule to compile to object files
+%.o: %.c
+	$(CC) -c $< -o $@
+
+.PHONY: clean
+clean:
+	rm $(OBJ) $(NAME)
