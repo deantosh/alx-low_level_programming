@@ -1,8 +1,0 @@
-# define gcc macro 
-CC=gcc
-OBJECTS=main.c school.c
-
-all: school
-
-school: ${OBJECTS}
-	${CC} ${OBJECTS} -o school;
