@@ -1,0 +1,15 @@
+all: school
+
+# Rule to link object files
+school: school.o main.o
+	gcc -o school main.o school.o
+
+# Rule to compile to object files
+main.o: main.c
+	gcc -c -o main.o main.c
+school.o: school.c
+	gcc -c -o school.o school.c
+
+.PHONY: clean
+clean:
+	rm -rf school.o main.o
