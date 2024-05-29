@@ -1,6 +1,6 @@
 # Variables
 CC = gcc
-SRC = school.c main.c
+SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 
@@ -13,7 +13,7 @@ $(NAME): $(OBJ)
 
 # Rule to compile to object files
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) -c -o $@ $<
 
 .PHONY: clean
 clean:
