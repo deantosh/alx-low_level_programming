@@ -1,4 +1,4 @@
-#Project Overview
+# Project Overview
 
 This project focuses on using makefiles to automate the build process for a project.
 Sometimes it takes alot of time to build the program manually for every change made
