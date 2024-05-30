@@ -1,7 +1,21 @@
+# Variables
 CC = gcc
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
-all : $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+
+# Top level target
+all : $(NAME)
+
+# Rule to link objects
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+# Rule to compile .c fies to .o
+%.o: %.c
+	$(CC) -c $< -o $@
+
+.PHONY: clean
+clean:
+	rm $(OBJ) school
 
