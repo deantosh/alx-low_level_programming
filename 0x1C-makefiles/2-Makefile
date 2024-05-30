@@ -11,10 +11,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Rule to compile .c files
-$(OBJ): $(SRC)
-	$(CC) -c $(@:.o=.c) -o $@
-
 .PHONY: clean
 clean:
 	rm $(OBJ) $(name)
