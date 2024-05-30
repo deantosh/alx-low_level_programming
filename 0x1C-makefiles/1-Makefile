@@ -3,16 +3,11 @@ all: school
 # Variables
 CC = gcc
 SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
 
-# Rule to link object files
-school: $(OBJ)
-	$(CC) -o school $(OBJ)
-
-# Rule to compile to object files
-%.o: %.c
-	$(CC) -c -o $@ $<
+# Rule to create executable
+school: $(SRC)
+	$(CC) $(SRC) -o school
 
 .PHONY: clean
 clean:
-	rm $(OBJ) school
+	rm school
