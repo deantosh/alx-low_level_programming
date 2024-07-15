@@ -29,13 +29,13 @@ int binary_search(int *array, size_t size, int value)
 }
 
 /**
- * find_value - divides array into two and compare values.
+ * find_value - divides array into two and search through the subset.
  * @array: The array to divide.
  * @low: Start index of sub array.
  * @high: The last index of the sub array.
  * @value: The value to search.
  *
- * Return: index at the center of the array.
+ * Return: index of the specified value (success) or -1 (fails).
  */
 int find_value(int *array, int low, int high, int value)
 {
