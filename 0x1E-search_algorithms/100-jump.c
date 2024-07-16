@@ -16,21 +16,23 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t i = 0, tmp, j, step = sqrt(size);
+	size_t i = 0, j, step = sqrt(size);
 
 	/*vaidate input -- ensure not empty*/
-	if (!array || size == 0)
+	if (!array)
 		return (-1);
 
-	while (i < size)
+	for (i = 0; i < size; i += step)
 	{
+		/*print values checked after every step*/
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		/*if greater than value*/
-		if (array[i] >= value)
+		if (array[i + step] >= value || i + step > size)
 		{
 			/*print block where values is found*/
-			printf("Value found between indexes [%ld] and [%ld]\n", tmp, i);
+			printf("Value found between indexes [%ld] and [%ld]\n", i, i + step);
 			/*perform a linear search on block*/
-			for (j = tmp; j <= i; j++)
+			for (j = i; j < size; j++)
 			{
 				/*print values checked*/
 				printf("Value checked array[%ld] = [%d]\n", j, array[j]);
@@ -38,16 +40,7 @@ int jump_search(int *array, size_t size, int value)
 					return (j);
 			}
 		}
-		else
-		{
-			tmp = i;
-			i += step;
-			/*print values checked after every step*/
-			printf("Value checked array[%ld] = [%d]\n", tmp, array[tmp]);
-		}
 	}
 	/*if not found*/
-	printf("Value found between indexes [%ld] and [%ld]\n", tmp, i);
-	printf("Value checked array[%ld] = [%d]\n", tmp, array[tmp]);
 	return (-1);
 }
