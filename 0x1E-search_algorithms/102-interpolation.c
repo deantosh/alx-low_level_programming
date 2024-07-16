@@ -19,7 +19,7 @@ int interpolation_search(int *array, size_t size, int value)
 	int idx;
 
 	/*validate input - not empty case*/
-	if (!array || size == 0)
+	if (!array)
 		return (-1);
 
 	/*recursive function*/
