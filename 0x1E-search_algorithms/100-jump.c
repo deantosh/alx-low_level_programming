@@ -27,17 +27,28 @@ int jump_search(int *array, size_t size, int value)
 		/*print values checked after every step*/
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		/*if greater than value*/
-		if (array[i + step] >= value || i + step > size)
+		if (array[i + step] && array[i + step] >= value)
 		{
 			/*print block where values is found*/
 			printf("Value found between indexes [%ld] and [%ld]\n", i, i + step);
 			/*perform a linear search on block*/
-			for (j = i; j < size; j++)
+			for (j = i; j < i + step; j++)
 			{
 				/*print values checked*/
 				printf("Value checked array[%ld] = [%d]\n", j, array[j]);
 				if (array[j] == value)
 					return (j);
+			}
+		}
+		/*If value not found within the range*/
+		if ((i + step > size - 1) && (value > array[size - 1]))
+		{
+			/*print the last block*/
+			printf("Value found between indexes [%ld] and [%ld]\n", i, i + step);
+			for (j = i; j < size; j++)
+			{
+				/*print values checked*/
+				printf("Value checked array[%ld] = [%d]\n", j, array[j]);
 			}
 		}
 	}
